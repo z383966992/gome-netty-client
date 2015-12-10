@@ -19,11 +19,9 @@ public class ServiceHandler extends ChannelHandlerAdapter{
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) 
 			throws Exception {
-		
 		Message message = (Message) msg;
 		if (message != null && message.getContent() != null
 				&& message.getMessageType() == MessageType.CONTROL_COMMAND.value()) {
-			
 			System.out.println("receive control command : " + message.getContent());
 			System.out.println("control success!");
 		}

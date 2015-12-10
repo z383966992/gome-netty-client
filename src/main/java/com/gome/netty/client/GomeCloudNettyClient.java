@@ -19,6 +19,7 @@ import com.gome.netty.codec.MarshallingCodecFactory;
 import com.gome.netty.config.Config;
 import com.gome.netty.handlers.ConnectAuthHandler;
 import com.gome.netty.handlers.HeartBeatRequestHandler;
+import com.gome.netty.handlers.ServiceHandler;
 
 public class GomeCloudNettyClient {
 	
@@ -43,6 +44,7 @@ public class GomeCloudNettyClient {
 				    p.addLast("encoder", MarshallingCodecFactory.buildMarshallingEncoder());
 				    p.addLast("checkAuthHandler", new ConnectAuthHandler());
 				    p.addLast("heartBeatRequest", new HeartBeatRequestHandler());
+				    p.addLast("serviceHandler", new ServiceHandler());
 				}
 			    });
 		    // 发起异步连接操作

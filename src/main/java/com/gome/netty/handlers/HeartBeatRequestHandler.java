@@ -28,6 +28,8 @@ public class HeartBeatRequestHandler extends ChannelHandlerAdapter{
 		} else if (message != null 
 				&& message.getMessageType() == MessageType.HEART_BEAT_RESPONSE.value()) {
 System.out.println("client receive server heart beat response");			
+		} else {
+			ctx.fireChannelRead(msg);
 		}
 	}
 	
